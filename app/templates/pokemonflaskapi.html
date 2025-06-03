@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+     <h1>Pokedex Entry:</h1>
+     <!-- Loop through the single array of only one element inside it: -->
+     {% for item in pokemon %}
+     <h2>id: {{ item["id"] }}</h2>
+     <h2>num: {{ item["num"] }}</h2>
+     <h2>name: {{ item["name"] }}</h2>
+     <img src='{{ item["img"] }}'' />
+     <h2>Types: </h2>
+     <ul>
+     {% for type in item["type"] %}
+        <li>{{ type }}</li>
+     {% endfor %}
+     </ul>
+     <h2>height: {{ item["height"] }}</h2>
+     <h2>weight: {{ item["weight"] }}</h2>
+     <h2>Weaknesses: </h2>
+     <ul>
+     {% for weakness in item["weaknesses"] %}
+        <li>{{ weakness }}</li>
+     {% endfor %}
+     </ul>
+     {% if "next_evolution" in item %}
+     <h2>Evolutions: </h2>
+     <ul></ul>
+     {% for next_evolution in item["next_evolution"] %}
+     <li>Number: {{ next_evolution["num"]}}</li>
+     <li>Name: {{ next_evolution["name"]}}</li>
+    </ul>
+    {% endfor %}
+    {% endif %}
+    {% endfor %}
+{% endblock %}

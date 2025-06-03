@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <head>
+    {% if title %}
+    <title>{{ title }} - Pokemon Flask API</title>
+    {% else %}
+    <title>Welcome to Pokemon Flask API</title>
+    {% endif %}
+  </head>
+  <body>
+    <div>
+      Pokemon Flask API: <a href="{{ url_for('index') }}">Home</a>
+    </div>
+    <hr />
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>
