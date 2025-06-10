@@ -1,0 +1,17 @@
+* Run Commands
+Here are the commands to run this project:
+
+1. Activate the 'venv' virtual environment:
+#+BEGIN_SRC bash
+    source venv/bin/activate
+#+END_SRC
+
+2. Seed the project:
+#+BEGIN_SRC python
+    python3 seed.py
+#+END_SRC
+
+3. Run the project:
+#+BEGIN_SRC python
+    flask run
+#+END_SRC
