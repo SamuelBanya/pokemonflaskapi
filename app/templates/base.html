@@ -12,18 +12,18 @@
     {% endblock %}
 
     {% if title %}
-    <title>{{ title }} - Pokemon Flask API</title>
+    <title>{{ title }} - Pokémon Flask API</title>
     {% else %}
-    <title>Welcome to Pokemon Flask API</title>
+    <title>Welcome to Pokémon Flask API</title>
     {% endif %}
     {% endblock %}
   </head>
-  <body>
+  <body style="background-color:tomato;">
     {% from 'bootstrap5/nav.html' import render_nav_item %}
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="navbar-nav mr-auto">
         <a class="navbar-brand">
-          Pokemon Flask API:
+          Pokémon Flask API:
         </a>
         {{ render_nav_item('main.index', 'Home') }}
       </div>

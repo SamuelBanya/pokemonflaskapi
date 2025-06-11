@@ -1,35 +1,56 @@
 {% extends "base.html" %}
 
 {% block content %}
-     <h1>Pokedex Entry:</h1>
-     <!-- Loop through the single array of only one element inside it: -->
-     {% for item in pokemon %}
-     <h2>id: {{ item.id }}</h2>
-     <h2>num: {{ item.num }}</h2>
-     <h2>name: {{ item.name }}</h2>
-     <img src='{{ item.img }}'' />
-     <h2>Types: </h2>
-     <ul>
-     {% for type in item.type %}
-        <li>{{ type }}</li>
-     {% endfor %}
-     </ul>
-     <h2>height: {{ item.height }}</h2>
-     <h2>weight: {{ item.weight }}</h2>
-     <h2>Weaknesses: </h2>
-     <ul>
-     {% for weakness in item.weaknesses %}
-        <li>{{ weakness.name }}</li>
-     {% endfor %}
-     </ul>
-     {% if item.next_evolution %}
-     <h2>Evolutions: </h2>
-     <ul>
-     {% for evo in item.next_evolution %}
-     <li>Number: {{ evo["num"] }}</li>
-     <li>Name: <a href="/pokemon/{{ evo['name'] }}">{{ evo["name"] }}</a></li>
-     {% endfor %}
-    </ul>
-    {% endif %}
-    {% endfor %}
+   <h1 class="text-center">Pokedex Entry:</h1>
+   <!-- Loop through the single array of only one element inside it: -->
+   {% for item in pokemon %}
+   <div class="d-flex justify-content-center my-4">
+      <div class="card bg-primary" style="width: 18rem;">
+         <img class="card-img-top w-50 mx-auto" src='{{ item.img }}' alt="Card image cap"/>
+         <div class="card-body text-center">
+            <h2 class="card-title">{{item.name}} #{{ item.num }}</h2>
+         </div>
+         <ul class="list-group list-group-flush">
+            <li class="list-group-item bg-warning">
+               <h5>Types: </h5>
+               <ul>
+               {% for type in item.types %}
+               <li>
+                  <span class="badge text-light"
+                        style="background-color: {{ type_colors.get(type.name, 'gray') }};">
+                     {{ type.name }}
+                  </span>
+               </li>
+               {% endfor %}
+               </ul>
+            </li>
+            <li class="list-group-item bg-warning">
+               <h5>Height: {{ item.height }}</h5>
+            </li>
+            <li class="list-group-item bg-warning">
+            <h5>Weight: {{ item.weight }}</h5>
+            </li>
+            <li class="list-group-item bg-warning">
+               <h5>Weaknesses: </h5>
+               <ul>
+               {% for weakness in item.weaknesses %}
+                  <li>{{ weakness.name }}</li>
+               {% endfor %}
+               </ul>
+            </li>
+            {% if item.next_evolution %}
+            <li class="list-group-item bg-warning">
+               <h5>Evolutions: </h5>
+               <ul>
+               {% for evo in item.next_evolution %}
+               <li>Number: {{ evo["num"] }}</li>
+               <li>Name: <a href="/pokemon/{{ evo['name'] }}">{{ evo["name"] }}</a></li>
+               {% endfor %}
+               </ul>
+            </li>
+            {% endif %}
+         </ul>
+      </div>
+   </div>
+   {% endfor %}
 {% endblock %}
