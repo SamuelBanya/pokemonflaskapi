@@ -12,6 +12,6 @@ def show_pokemon(pokemonname):
     results = Pokemon.query.filter(Pokemon.name.ilike(pokemonname)).all()
 
     if not results:
-        return f"No Pokemon found with name: {pokemonname}"
+        return render_template('pokemonnotfound.html', pokemonname=pokemonname)
 
     return render_template('pokemonflaskapi.html', pokemonname=pokemonname, pokemon=results)

@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Search For A Pokemon!</h1>
-    <form action="{{ url_for('main.show_pokemon', pokemonname='')}}" method="get" onsubmit="event.preventDefault(); 
+    <h1 class="text-center">Search For A Pokemon!</h1>
+    <form class="text-center" action="{{ url_for('main.show_pokemon', pokemonname='')}}" method="get" onsubmit="event.preventDefault(); 
         const name = document.getElementById('pokemon_input').value.trim().toLowerCase();
         if (name) {
             window.location.href = '/pokemon/' + encodeURIComponent(name);
         }"
     >
         <input type="text" id="pokemon_input" name="pokemonname" placeholder="Enter Pokemon name" required/>
-        <button type="submit">Search</button>
+        <button class="btn btn-primary" type="submit">Search</button>
     </form>
 {% endblock %}

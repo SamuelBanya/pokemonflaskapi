@@ -1,18 +1,38 @@
 <!doctype html>
 <html>
   <head>
+    {% block head %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% block styles %}
+        <!-- Bootstrap CSS -->
+        {{ bootstrap.load_css() }}
+    {% endblock %}
+
     {% if title %}
     <title>{{ title }} - Pokemon Flask API</title>
     {% else %}
     <title>Welcome to Pokemon Flask API</title>
     {% endif %}
+    {% endblock %}
   </head>
   <body>
-    <div>
-      Pokemon Flask API: <a href="{{ url_for('main.index') }}">Home</a>
-    </div>
-    <hr />
+    {% from 'bootstrap5/nav.html' import render_nav_item %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="navbar-nav mr-auto">
+        <a class="navbar-brand">
+          Pokemon Flask API:
+        </a>
+        {{ render_nav_item('main.index', 'Home') }}
+      </div>
+    </nav>
     {% block content %}
+    {% endblock %}
+    {% block scripts %}
+      <!-- Optional JavaScript -->
+      {{ bootstrap.load_js() }}
     {% endblock %}
   </body>
 </html>

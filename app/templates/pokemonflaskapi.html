@@ -27,7 +27,7 @@
      <ul>
      {% for evo in item.next_evolution %}
      <li>Number: {{ evo["num"] }}</li>
-     <li>Name: {{ evo["name"] }}</li>
+     <li>Name: <a href="/pokemon/{{ evo['name'] }}">{{ evo["name"] }}</a></li>
      {% endfor %}
     </ul>
     {% endif %}
