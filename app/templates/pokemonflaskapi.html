@@ -34,7 +34,12 @@
                <h5>Weaknesses: </h5>
                <ul>
                {% for weakness in item.weaknesses %}
-                  <li>{{ weakness.name }}</li>
+                  <li>
+                     <span class="badge text-light"
+                           style="background-color: {{ type_colors.get(weakness.name, 'gray') }};">
+                        {{ weakness.name }}
+                     </span>
+                  </li>
                {% endfor %}
                </ul>
             </li>

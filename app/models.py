@@ -42,29 +42,5 @@ class Pokemon(db.Model):
     weaknesses: so.Mapped[List["Weakness"]] = so.relationship(secondary=pokemon_weaknesses, backref="pokemons")
     next_evolution: so.Mapped[List["NextEvolution"]] = so.relationship(back_populates="pokemon", cascade="all, delete-orphan")
 
-    # Snippet of sample array:
-    # pokemon = [
-    #     {
-    #     "id": 1,
-    #     "num": "001",
-    #     "name": "Bulbasaur",
-    #     "img": "http://www.serebii.net/pokemongo/pokemon/001.png",
-    #     "type": ["Grass", "Poison"],
-    #     "height": "0.71 m",
-    #     "weight": "6.9 kg",
-    #     "weaknesses": ["Fire", "Ice", "Flying", "Psychic"],
-    #     "next_evolution": [
-    #         {
-    #         "num": "002",
-    #         "name": "Ivysaur"
-    #         },
-    #         {
-    #         "num": "003",
-    #         "name": "Venusaur"
-    #         }
-    #     ]
-    #     },
-
     def __repr__(self):
-        # return '<Pokemon {}>'.format(self.name)
         return f'<Pokemon {self.name}>'

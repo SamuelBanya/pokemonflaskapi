@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1 class="text-center">Pokémon Flask API: </h1>
-    <h2 class="text-center">An API That Showcases The Original 150 Pokémon!</h2>
+    <br />
+    <h1 class="text-center" style="color: #ffee00; font-family: 'Pokemon Solid', sans-serif;">Pokémon Flask API: </h1>
+    <h2 class="text-center text-white">An API That Showcases The Original 150 Pokémon!</h2>
     <br />
     <h3 class="text-center">Search For A Pokémon:</h3>
     <form class="text-center" action="{{ url_for('main.show_pokemon', pokemonname='')}}" method="get" onsubmit="event.preventDefault(); 
